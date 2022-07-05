@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { CryptoServiceService } from './services/crypto-service.service'
+import { FormsModule } from '@angular/forms';
+import { CurrencyItemComponent } from './components/currency-item/currency-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CurrencyItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CryptoServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
