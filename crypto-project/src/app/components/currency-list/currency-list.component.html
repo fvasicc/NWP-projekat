@@ -1,20 +1,22 @@
-
+<div class="container">
     <div class="row bg-dark text-white">
         <div class="col-sm-1">
-            <div>{{currency.rank}}</div>
+            <div>Rank</div>
         </div>
         <div class="col-sm-5">
-            <h6>{{currency.name}}</h6>
-            <span>{{currency.symbol}}</span>
+            <div>Name</div>
         </div>
         <div class="col-sm-2">
-            <div>${{currency.priceUsd}}</div>
+            <div>Price</div>
         </div>
         <div class="col-sm-2">
-            <div>${{currency.vwap24Hr}}</div>
+            <div>VWAP 24h</div>
         </div>
         <div class="col-sm-2">
-            <div>{{currency.changePercent24Hr}}%</div>
+            <div>Change 24h</div>
         </div>
         
     </div>
+    <app-currency-item [currency]="currency" *ngFor="let currency of currencies"></app-currency-item>
+</div>
+

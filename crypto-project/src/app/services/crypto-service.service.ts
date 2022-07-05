@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AssetsModel } from '../model/assets';
 import { CryptoModel } from '../model/crypto';
+
 
 @Injectable({
 
@@ -13,7 +15,7 @@ export class CryptoServiceService {
 
   constructor(private httpClient : HttpClient) { }
 
-  public getCryptos() : Observable<CryptoModel[]> {
-    return this.httpClient.get<CryptoModel[]>(this.HOST + "assets");
+  public getCryptos() : Observable<AssetsModel[]> {
+    return this.httpClient.get<AssetsModel[]>(this.HOST + "assets");
   }
 }

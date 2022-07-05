@@ -9,11 +9,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CryptoServiceService } from './services/crypto-service.service'
 import { FormsModule } from '@angular/forms';
 import { CurrencyItemComponent } from './components/currency-item/currency-item.component';
+import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyItemComponent
+    CurrencyItemComponent,
+    CurrencyListComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@ export interface CryptoModel {
     symbol : String
     name : String
     supply : String
-    maxSupply : String
+    maxSupply : String | null
     marketCapUsd : String
     volumeUsd24Hr : String
     priceUsd : String

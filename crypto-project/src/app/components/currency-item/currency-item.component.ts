@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CryptoModel } from 'src/app/model/crypto';
+import { CryptoServiceService } from 'src/app/services/crypto-service.service';
+
 
 @Component({
   selector: 'app-currency-item',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrencyItemComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  currency !: CryptoModel
+
+  constructor(private cryptoService : CryptoServiceService) {}
 
   ngOnInit(): void {
+    this.cryptoService.getCryptos().subscribe(c => console.log(c))
   }
 
 }
