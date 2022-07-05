@@ -1,20 +1,19 @@
-
-    <div class="row bg-dark text-white">
-        <div class="col-sm-1">
-            <div>{{currency.rank}}</div>
-        </div>
-        <div class="col-sm-5">
-            <h6>{{currency.name}}</h6>
-            <span>{{currency.symbol}}</span>
-        </div>
-        <div class="col-sm-2">
-            <div>${{currency.priceUsd}}</div>
-        </div>
-        <div class="col-sm-2">
-            <div>${{currency.vwap24Hr}}</div>
-        </div>
-        <div class="col-sm-2">
-            <div>{{currency.changePercent24Hr}}%</div>
-        </div>
-        
+<div class="row bg-dark text-white border-bottom border-secondary align-items-center">
+    <div class="col-sm-1 align-middle" align="center">
+        <div>{{currency.rank}}</div>
     </div>
+    <div class="col-sm-5">
+        <h6>{{currency.name}}</h6>
+        <span>{{currency.symbol}}</span>
+    </div>
+    <div class="col-sm-2" align="right">
+        <div>${{currency.priceUsd}}</div>
+    </div>
+    <div class="col-sm-2" align="right">
+        <div>${{currency.vwap24Hr}}</div>
+    </div>
+    <div class="col-sm-2" align="right">
+        <div>{{currency.changePercent24Hr}}%</div>
+    </div>
+
+</div>

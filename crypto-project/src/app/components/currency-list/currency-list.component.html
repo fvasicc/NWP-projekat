@@ -1,22 +1,22 @@
 <div class="container">
-    <div class="row bg-dark text-white">
-        <div class="col-sm-1">
+    <div class="row bg-dark text-white align-items-center">
+        <div class="col-sm-1" align="center">
             <div>Rank</div>
         </div>
         <div class="col-sm-5">
             <div>Name</div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2" align="center">
             <div>Price</div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2" align="center">
             <div>VWAP 24h</div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2" align="center">
             <div>Change 24h</div>
         </div>
         
     </div>
-    <app-currency-item [currency]="currency" *ngFor="let currency of currencies"></app-currency-item>
+    <app-currency-item [currency]="currency" *ngFor="let currency of currencies | async"></app-currency-item>
 </div>
 
