@@ -7,13 +7,13 @@
         <span>{{currency.symbol}}</span>
     </div>
     <div class="col-sm-2" align="right">
-        <div>${{currency.priceUsd}}</div>
+        <div>${{priceUsd | number:'1.2-2' }}</div>
     </div>
     <div class="col-sm-2" align="right">
-        <div>${{currency.vwap24Hr}}</div>
+        <div>${{vwap24Hr | number:'1.2-2'}}</div>
     </div>
     <div class="col-sm-2" align="right">
-        <div>{{currency.changePercent24Hr}}%</div>
+        <div [ngClass]="changePercent24Hr < 0.0 ? 'down' : 'up'">{{changePercent24Hr | number:'1.2-2'}}%</div>
     </div>
 
 </div>

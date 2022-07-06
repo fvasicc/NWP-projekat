@@ -1,22 +1,26 @@
-<div class="container">
-    <div class="row bg-dark text-white align-items-center">
-        <div class="col-sm-1" align="center">
+<div class="container black-bg text-white">
+    <div class="row align-items-center" style="height: 50px;">
+        <div class="col-sm-1" align="center" (click)="sortByRank()">
             <div>Rank</div>
         </div>
         <div class="col-sm-5">
             <div>Name</div>
         </div>
-        <div class="col-sm-2" align="center">
+        <div class="col-sm-2" align="right" (click)="sortByPrice()">
             <div>Price</div>
         </div>
-        <div class="col-sm-2" align="center">
+        <div class="col-sm-2" align="right">
             <div>VWAP 24h</div>
         </div>
-        <div class="col-sm-2" align="center">
+        <div class="col-sm-2" align="right" (click)="sortByGrowth()">
             <div>Change 24h</div>
         </div>
         
     </div>
     <app-currency-item [currency]="currency" *ngFor="let currency of currencies | async"></app-currency-item>
+    <div class="row">
+        <button type="button" class="btn btn-secondary btn-lg" (click)="loadMore()" [disabled]="noMoreLoad()">Load more</button>
+        <button type="button" class="btn btn-secondary btn-lg" (click)="loadLess()" [disabled]="noLessLoad()">Load less</button>
+    </div>
 </div>
 
