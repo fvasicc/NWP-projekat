@@ -17,6 +17,12 @@ export class CurrencyItemComponent implements OnInit {
   priceUsd !: number
   vwap24Hr !: number
 
+  collapsed = false;
+
+  changeCollapse() {
+    this.collapsed = ! this.collapsed;
+  }
+
   constructor(private cryptoService : CryptoServiceService) {}
 
   ngOnInit(): void {

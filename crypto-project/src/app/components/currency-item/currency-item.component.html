@@ -1,9 +1,9 @@
-<div class="row bg-dark text-white border-bottom border-secondary align-items-center">
+<div class="row bg-dark text-white border-bottom border-secondary align-items-center" (click)="changeCollapse()" >
     <div class="col-sm-1 align-middle" align="center">
         <div>{{currency.rank}}</div>
     </div>
     <div class="col-sm-5">
-        <h6>{{currency.name}}</h6>
+        <h4>{{currency.name}}</h4>
         <span>{{currency.symbol}}</span>
     </div>
     <div class="col-sm-2" align="right">
@@ -15,5 +15,7 @@
     <div class="col-sm-2" align="right">
         <div [ngClass]="changePercent24Hr < 0.0 ? 'down' : 'up'">{{changePercent24Hr | number:'1.2-2'}}%</div>
     </div>
-
+    <div class="collapse" [ngClass]="collapsed ? 'show' : ''">
+        <app-currency-item-info [currency]="currency"></app-currency-item-info>
+    </div> 
 </div>

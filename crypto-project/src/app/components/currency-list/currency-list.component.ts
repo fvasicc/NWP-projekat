@@ -6,7 +6,7 @@ import { CryptoServiceService } from 'src/app/services/crypto-service.service';
 @Component({
   selector: 'app-currency-list',
   templateUrl: './currency-list.component.html',
-  styleUrls: ['./currency-list.component.css']
+  styleUrls: ['./currency-list.component.css'],
 })
 export class CurrencyListComponent implements OnInit {
 

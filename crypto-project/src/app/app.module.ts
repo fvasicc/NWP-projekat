@@ -10,19 +10,21 @@ import { CryptoServiceService } from './services/crypto-service.service'
 import { FormsModule } from '@angular/forms';
 import { CurrencyItemComponent } from './components/currency-item/currency-item.component';
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
+import { CurrencyItemInfoComponent } from './components/currency-item-info/currency-item-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyItemComponent,
-    CurrencyListComponent
+    CurrencyListComponent,
+    CurrencyItemInfoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [CryptoServiceService],
   bootstrap: [AppComponent]

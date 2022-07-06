@@ -5,3 +5,7 @@
 .down {
     color: red;
 }
+
+mat-accordion {
+    width: 100%;
+}
