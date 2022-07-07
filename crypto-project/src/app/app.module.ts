@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CurrencyItemComponent } from './components/currency-item/currency-item.component';
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 import { CurrencyItemInfoComponent } from './components/currency-item-info/currency-item-info.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CurrencyItemInfoComponent } from './components/currency-item-info/curre
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    NgChartsModule
   ],
   providers: [CryptoServiceService],
   bootstrap: [AppComponent]

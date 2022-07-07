@@ -15,7 +15,7 @@
     <div class="col-sm-2" align="right">
         <div [ngClass]="changePercent24Hr < 0.0 ? 'down' : 'up'">{{changePercent24Hr | number:'1.2-2'}}%</div>
     </div>
-    <div class="collapse" [ngClass]="collapsed ? 'show' : ''">
-        <app-currency-item-info [currency]="currency"></app-currency-item-info>
-    </div> 
 </div>
+<div class="collapse" [ngClass]="collapsed ? 'show' : ''">
+    <app-currency-item-info [currency]="currency"></app-currency-item-info>
+</div> 

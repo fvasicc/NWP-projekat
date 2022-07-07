@@ -62,7 +62,7 @@ export class CurrencyListComponent implements OnInit {
   }
 
   noMoreLoad() : boolean {
-    return this.listedCurrency === 100;
+    return this.listedCurrency === 220;
   }
 
   noLessLoad() : boolean {

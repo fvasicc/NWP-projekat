@@ -1,1 +1,45 @@
-Details for {{currency.name}}
+<div class="row">
+  <div class="col-sm-6" align="center">
+    <div style="display: block;">
+      <canvas baseChart width="700" height="300" style="max-width: 100%;"
+        [type]="'line'"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend">
+      </canvas>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-secondary" (click)="getChart('m1')">Day</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('m30', 7)">Week</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('h1')">Month</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('h12')">Year</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('d1')">All time</button>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      Today open: ${{todayOpen | number:'1.2-2'}} Current worth: ${{priceUsd | number:'1.2-2' }}
+      <hr>
+    </div>
+    <div class="row">
+      <div class="input-group flex-nowrap">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">{{currency.symbol}}</span>
+        </div>
+        <input type="number" #tokens class="form-control" placeholder="{{currency.name}} coins..." aria-label="Crypto" aria-describedby="addon-wrapping">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-group flex-nowrap ">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">USD</span>
+        </div>
+        <input type="number" class="form-control" aria-label="Crypto" aria-describedby="addon-wrapping" value="{{value}}" disabled>
+      </div>
+    </div>
+    <button type="button" class="btn btn-secondary" (click)="setValue(tokens.value)">Convert</button>
+  </div>
+</div>
+
+
