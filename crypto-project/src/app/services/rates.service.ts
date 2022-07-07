@@ -13,7 +13,7 @@ export class RatesService {
   constructor(private httpClient : HttpClient) { }
   
   public getRatesAssets() : Observable<AssetsRatesModel> {
-    return this.httpClient.get<AssetsRatesModel>(this.HOST + "/rates")
+    return this.httpClient.get<AssetsRatesModel>(this.HOST + "rates")
   }
 
   public getRates() : Observable<RatesModel[]> {

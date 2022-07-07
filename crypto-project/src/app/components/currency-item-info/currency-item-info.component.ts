@@ -5,6 +5,9 @@ import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
 import { CryptoServiceService } from 'src/app/services/crypto-service.service';
 import { CryptoHistoryModel } from 'src/app/model/crypto-history';
 import { ThisReceiver } from '@angular/compiler';
+import { RatesModel } from 'src/app/model/rates';
+import { RatesService } from 'src/app/services/rates.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-currency-item-info',
@@ -28,30 +31,21 @@ export class CurrencyItemInfoComponent implements OnInit {
 
   todayOpen !: number
   priceUsd !: number
+  change !: number
 
   value : number = 0
+  rates !: Array<RatesModel>
+  selectedRate !: RatesModel
 
-  constructor(private currencyService: CryptoServiceService) { }
+  constructor(private currencyService: CryptoServiceService, private ratesService : RatesService) { }
 
   ngOnInit(): void {
     this.todayOpen = Number(this.currency.vwap24Hr)
     this.priceUsd = Number(this.currency.priceUsd)
+    this.change = Number(this.currency.changePercent24Hr)
     // this.getChart(this.interval)
-    this.lineChartData = {
-      labels: this.labelValues,
-      datasets: [
-        {
-          data: this.dataValues,
-          label: this.currency.name,
-          fill: true,
-          tension: 0.1,
-          borderColor: this.dataValues[0] < this.dataValues[this.dataValues.length - 1] ? 'green' : 'red',
-          backgroundColor: this.dataValues[0] < this.dataValues[this.dataValues.length - 1] ? 'rgba(0,255,0,0.3)' : 'rgba(255,0,0,0.3)',
-          pointRadius: 0,
-          borderWidth: 2
-        }
-      ]
-    }
+    this.getChart("m15", 0.1)
+    this.ratesService.getRates().subscribe(res => this.rates = res)
   }
 
   getChart(interval: string, days? : number): void {
@@ -96,6 +90,8 @@ export class CurrencyItemInfoComponent implements OnInit {
   }
 
   public setValue(n : String) {
-    this.value = Number(n) * Number(this.currency.priceUsd)
+    let num = Number(n)
+    if (num >= 0)
+      this.value = num * Number(this.currency.priceUsd) / Number(this.selectedRate.rateUsd)
   }
 }

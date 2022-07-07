@@ -9,31 +9,44 @@
       </canvas>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="First group">
-      <button type="button" class="btn btn-secondary" (click)="getChart('m1')">Day</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('m5', 1)">Day</button>
       <button type="button" class="btn btn-secondary" (click)="getChart('m30', 7)">Week</button>
-      <button type="button" class="btn btn-secondary" (click)="getChart('h1')">Month</button>
-      <button type="button" class="btn btn-secondary" (click)="getChart('h12')">Year</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('h1', 30)">Month</button>
+      <button type="button" class="btn btn-secondary" (click)="getChart('h12', 365)">Year</button>
       <button type="button" class="btn btn-secondary" (click)="getChart('d1')">All time</button>
     </div>
   </div>
   <div class="col-sm-6">
     <div class="row">
-      Today open: ${{todayOpen | number:'1.2-2'}} Current worth: ${{priceUsd | number:'1.2-2' }}
-      <hr>
+      <div class="col-sm-6">
+        <h2>Today open: ${{todayOpen | number:'1.2-4'}}</h2>
+      </div>  
+      <div class="col-sm-6">
+        <h2>Change: {{change | number:'1.2-2'}}%</h2>
+      </div>  
     </div>
     <div class="row">
-      <div class="input-group flex-nowrap">
+      <div class="col-sm-6">
+        <h2>Current worth: ${{priceUsd | number:'1.2-4'}}</h2>
+      </div>
+    </div>
+    <hr color="red">
+    <div class="row">
+      <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">{{currency.symbol}}</span>
         </div>
         <input type="number" #tokens class="form-control" placeholder="{{currency.name}} coins..." aria-label="Crypto" aria-describedby="addon-wrapping">
       </div>
     </div>
-
     <div class="row">
-      <div class="input-group flex-nowrap ">
+      <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="addon-wrapping">USD</span>
+          <span class="input-group-text" id="addon-wrapping">
+            <select #rate class="custom-select" [(ngModel)]="selectedRate">
+              <option *ngFor="let rate of rates" [ngValue]="rate" selected>{{rate.symbol}}</option>
+            </select>
+          </span>
         </div>
         <input type="number" class="form-control" aria-label="Crypto" aria-describedby="addon-wrapping" value="{{value}}" disabled>
       </div>
@@ -41,5 +54,5 @@
     <button type="button" class="btn btn-secondary" (click)="setValue(tokens.value)">Convert</button>
   </div>
 </div>
-
+<br>
 
