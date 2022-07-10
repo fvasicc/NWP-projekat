@@ -12,6 +12,9 @@ import { CurrencyItemComponent } from './components/currency-item/currency-item.
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 import { CurrencyItemInfoComponent } from './components/currency-item-info/currency-item-info.component';
 import { NgChartsModule } from 'ng2-charts';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { WalletComponent } from './components/wallet/wallet.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { NgChartsModule } from 'ng2-charts';
     CurrencyItemComponent,
     CurrencyListComponent,
     CurrencyItemInfoComponent,
+    LoginComponent,
+    RegisterComponent,
+    WalletComponent,
   ],
   imports: [
     BrowserModule,

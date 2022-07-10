@@ -1,5 +1,20 @@
-
-<div class="containter bg-dark">
-<app-currency-list></app-currency-list>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="font-size: 1.5em;">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/currencies" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/user" routerLinkActive="active">Account</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/wallet" routerLinkActive="active">Wallet</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Log in</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/sign-up" routerLinkActive="active">Sign up</a>
+        </li>
+    </ul>
+</nav>
 <router-outlet></router-outlet>
