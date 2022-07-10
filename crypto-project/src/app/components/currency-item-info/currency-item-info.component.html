@@ -22,12 +22,15 @@
         <h2>Today open: ${{todayOpen | number:'1.2-4'}}</h2>
       </div>  
       <div class="col-sm-6">
-        <h2>Change: {{change | number:'1.2-2'}}%</h2>
+        <h2>Daily Change: {{change | number:'1.2-2'}}%</h2>
       </div>  
     </div>
     <div class="row">
       <div class="col-sm-6">
         <h2>Current worth: ${{priceUsd | number:'1.2-4'}}</h2>
+      </div>
+      <div class="col-sm-6">
+        <h2>24h volume: {{volume | number:'1.2-2'}}$</h2>
       </div>
     </div>
     <hr color="red">

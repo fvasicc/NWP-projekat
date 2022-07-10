@@ -21,8 +21,24 @@ export class CurrencyListComponent implements OnInit {
     this.currencies = this.currencyService.getCryptos(this.listedCurrency)
   }
 
+  sortByName() {
+    console.log("sortByName() method is called")
+    this.currencyService.getCryptosSortedByName(this.listedCurrency).subscribe( c => {
+      this.currencies = of(c)
+      this.reloadCurrency.next()
+    })
+  }
+
+  sortByVWAP() {
+    console.log("sortByVWAP() method is called")
+    this.currencyService.getCryptosSortedBy24hVWAP(this.listedCurrency).subscribe( c => {
+      this.currencies = of(c)
+      this.reloadCurrency.next()
+    })
+  }
+
   sortByPrice() {
-    console.log("sortByPrice() method")
+    console.log("sortByPrice() method is called")
     this.currencyService.getCryptosSortedByPrice(this.listedCurrency).subscribe(c => { 
       this.currencies = of(c)
       this.reloadCurrency.next()
@@ -30,7 +46,7 @@ export class CurrencyListComponent implements OnInit {
   }
 
   sortByRank() {
-    console.log("sortByRank() method")
+    console.log("sortByRank() method is called")
     this.currencyService.getCryptosSortedByRank(this.listedCurrency).subscribe(c => { 
       this.currencies = of(c)
       this.reloadCurrency.next()
@@ -38,7 +54,7 @@ export class CurrencyListComponent implements OnInit {
   }
 
   sortByGrowth() {
-    console.log("sortByGrowth() method")
+    console.log("sortByGrowth() method is called")
     this.currencyService.getCryptosSortedBy24hChange(this.listedCurrency).subscribe(c => { 
       this.currencies = of(c)
       this.reloadCurrency.next()

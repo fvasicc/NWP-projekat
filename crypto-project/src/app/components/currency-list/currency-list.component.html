@@ -3,62 +3,26 @@
         <div class="col-sm-1" align="center" (click)="sortByRank()">
             <div>Rank</div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-5" (click)="sortByName()">
             <div>Name</div>
         </div>
         <div class="col-sm-2" align="right" (click)="sortByPrice()">
             <div>Price</div>
         </div>
-        <div class="col-sm-2" align="right">
+        <div class="col-sm-2" align="right" (click)="sortByVWAP()">
             <div>VWAP 24h</div>
         </div>
         <div class="col-sm-2" align="right" (click)="sortByGrowth()">
             <div>Change 24h</div>
         </div>
-        
     </div>
     <app-currency-item [currency]="currency" *ngFor="let currency of currencies | async"></app-currency-item>
     <div class="row">
-        <button type="button" class="btn btn-secondary btn-lg" (click)="loadMore()" [disabled]="noMoreLoad()">Load more</button>
+      <div class="col-sm-6" align="right">
+        <button type="button" class="btn btn-primary btn-lg" (click)="loadMore()" [disabled]="noMoreLoad()">Load more</button>
+      </div>
+      <div class="col-sm-6">
         <button type="button" class="btn btn-secondary btn-lg" (click)="loadLess()" [disabled]="noLessLoad()">Load less</button>
-    </div>
+      </div>
+      </div>
 </div>
-<!-- <div class="container black-bg text-white">
-    <div class="row align-items-center" style="height: 50px;">
-        <table mat-table [dataSource]="currencies" class="mat-elevation-z8">          
-            
-            <ng-container matColumnDef="Rank">
-              <th mat-header-cell *matHeaderCellDef> Rank </th>
-              <td mat-cell *matCellDef="let currency"> {{currency.rank}} </td>
-            </ng-container>
-           
-            <ng-container matColumnDef="Name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let currency"> {{currency.name}} </td>
-            </ng-container>
-          
-            <ng-container matColumnDef="Price USD">
-              <th mat-header-cell *matHeaderCellDef> Price </th>
-              <td mat-cell *matCellDef="let currency"> {{currency.priceUsd}} </td>
-            </ng-container>
-          
-            <ng-container matColumnDef="VWAP 24h">
-              <th mat-header-cell *matHeaderCellDef> VWAP 24h </th>
-              <td mat-cell *matCellDef="let currency"> {{currency.vwap24Hr}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="Change 24h">
-                <th mat-header-cell *matHeaderCellDef> Change 24h </th>
-                <td mat-cell *matCellDef="let currency"> {{currency.changePercent24Hr}} </td>
-              </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          <div class="row">
-            <button type="button" class="btn btn-secondary btn-lg" (click)="loadMore()" [disabled]="noMoreLoad()">Load more</button>
-            <button type="button" class="btn btn-secondary btn-lg" (click)="loadLess()" [disabled]="noLessLoad()">Load less</button>
-        </div>          
-    </div>
-</div> -->
-

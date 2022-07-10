@@ -1,3 +1,7 @@
 .black-bg {
     background-color: black;
 }
+
+.lightonhover div {
+    background-color: red;
+}
