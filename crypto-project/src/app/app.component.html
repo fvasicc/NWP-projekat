@@ -3,18 +3,23 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="/currencies" routerLinkActive="active">Home</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/user" routerLinkActive="active">Account</a>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+            <a class="nav-link" routerLink="/account" routerLinkActive="active">Account</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isLoggedIn()" class="nav-item">
             <a class="nav-link" routerLink="/wallet" routerLinkActive="active">Wallet</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link" routerLink="/login" routerLinkActive="active">Log in</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!isLoggedIn()" class="nav-item">
             <a class="nav-link" routerLink="/sign-up" routerLinkActive="active">Sign up</a>
+        </li>
+        <li *ngIf="isLoggedIn()" class="nav-item">
+            <a class="nav-link" (click)="logout()" routerLinkActive="active">Log out</a>
         </li>
     </ul>
 </nav>
-<router-outlet></router-outlet>
+<div class="bg-wallpaper">
+    <router-outlet></router-outlet>
+</div>

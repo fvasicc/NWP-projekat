@@ -1,0 +1,40 @@
+<form #formSubmit="ngForm" class="form" (ngSubmit)="changePassword(formSubmit)">
+  <div class="form-group">
+    <div class="mb-2">
+      <label>Current password</label>
+      <input #oldPassword="ngModel" type="password" class="form-control" name="oldPassword" [(ngModel)]="oldPass"
+        required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="error" *ngIf="oldPassword.invalid && (oldPassword.dirty || oldPassword.touched)">
+      Current password is required!!!
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="mb-2">
+      <label>New password</label>
+      <input #newPassword="ngModel" type="password" class="form-control" name="newPassword" [(ngModel)]="newPass"
+        (keyup)="onKey($event)" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <app-password-checker></app-password-checker>
+    <div class="error" *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)">
+      Password is required!!!
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="mb-2">
+      <label>Confirm new password</label>
+      <input #confirmPassword="ngModel" type="password" class="form-control" name="newPasswordConfirmation"
+        [(ngModel)]="confPass" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="error" *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)">
+      Password confirmation is required!!!
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Change password</button>
+</form>

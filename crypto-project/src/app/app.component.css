@@ -1,0 +1,12 @@
+.bg-wallpaper{
+    /* background-image: url('https://wallpaperaccess.com/full/1267580.jpg'); */
+    background-image: url('https://wallpaperaccess.com/full/3648398.jpg');
+    min-height: 100%;
+    background-size:cover;
+    background-repeat: repeat-y;
+    background-position:50% 50%;
+}
+
+.black-bg {
+    background-color: black;
+}

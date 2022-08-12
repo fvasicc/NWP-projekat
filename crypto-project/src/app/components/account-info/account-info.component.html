@@ -1,0 +1,36 @@
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <span class="anchor"></span>
+
+                <div class="card rounded-0 bg-dark text-white">
+                    <div class="card-header">
+                        <h3 class="mb-0">{{user.username}}'s account</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Username: {{user.username}}</p>
+                                <p>Name: {{user.firstName}} {{user.lastName}}</p>
+                                <p>Email: {{user.email}}</p>
+                                <p>Country: {{user.country}} city: {{user.city}} zip: {{user.zip}}</p>
+                                <p>Age: {{user.age}}</p>
+                            </div>
+                            <div align="center" class="col-md-4">
+                                <img src="{{user.imageUrl}}" style="width: 128px; height: 128px;" alt="">
+                                <button class="btn-sm btn-primary">Upload photo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button (click)="openNewPasswordMenu()" class="btn btn-secondary">Change password</button>
+                        <div class="collapse" [ngClass]="passMenu ? 'show' : ''">
+                            <app-change-pass-form (passwordChange)="onPasswordChange($event)"></app-change-pass-form>
+                          </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

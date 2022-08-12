@@ -86,4 +86,7 @@ export class CryptoServiceService {
       return this.httpClient.get<AssetsHistoryModel>(this.HOST + "assets/" + id +"/history?interval=" + interval + "&start=" + start + "&end=" + end)
   }
 
+  public getCurrencyInfo(id : string): Observable<CryptoModel>{
+    return this.httpClient.get<CryptoModel>(this.HOST + "assets/" + id).pipe(map((res: any) => { return res.data }))
+  }
 }

@@ -12,9 +12,20 @@ import { CurrencyItemComponent } from './components/currency-item/currency-item.
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 import { CurrencyItemInfoComponent } from './components/currency-item-info/currency-item-info.component';
 import { NgChartsModule } from 'ng2-charts';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { RegisterComponent } from './components/user/register/register.component';
 import { WalletComponent } from './components/wallet/wallet.component';
+import { AuthGuard } from './guards/auth-guard';
+import { TokenInterceptor } from './services/interceptor/token-interceptor';
+import { CurrencyTransactionComponent } from './components/currency-transaction/currency-transaction.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { ChangePassFormComponent } from './components/change-pass-form/change-pass-form.component';
+import { LoggedGuard } from './guards/logged-user-guard';
+import { CryptoCardComponent } from './components/crypto-card/crypto-card.component';
+import { CarouselModule, ModalModule } from '@coreui/angular';
+import { IconModule } from '@coreui/icons-angular';
+import { PasswordCheckerComponent } from './components/password-checker/password-checker.component';
+import { DepositPaymentComponent } from './components/deposit-payment/deposit-payment.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +36,12 @@ import { WalletComponent } from './components/wallet/wallet.component';
     LoginComponent,
     RegisterComponent,
     WalletComponent,
+    CurrencyTransactionComponent,
+    AccountInfoComponent,
+    ChangePassFormComponent,
+    CryptoCardComponent,
+    PasswordCheckerComponent,
+    DepositPaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +49,10 @@ import { WalletComponent } from './components/wallet/wallet.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    ModalModule
   ],
-  providers: [CryptoServiceService],
+  providers: [CryptoServiceService, AuthGuard, LoggedGuard, {provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

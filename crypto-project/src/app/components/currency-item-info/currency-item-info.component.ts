@@ -19,6 +19,8 @@ export class CurrencyItemInfoComponent implements OnInit {
   };
   public lineChartLegend = true;
 
+  public authorized !: boolean
+
   @Input()
   currency !: CryptoModel
 
@@ -41,6 +43,11 @@ export class CurrencyItemInfoComponent implements OnInit {
     this.volume = Number(this.currency.volumeUsd24Hr)
     this.getChart("m15", 0.1)
     this.ratesService.getRates().subscribe(res => this.rates = res)
+
+    if(localStorage.getItem('token'))
+      this.authorized = true;
+    else
+      this.authorized = false;
   }
 
   getChart(interval: string, days? : number): void {

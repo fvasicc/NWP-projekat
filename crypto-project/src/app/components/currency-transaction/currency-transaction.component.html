@@ -1,0 +1,42 @@
+<div align="center">
+    <div class="btn-group mr-2 mb-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary" (click)="onBuyButtonClick()">Buy</button>
+        <button type="button" class="btn btn-secondary" (click)="onSellButtonClick()">Sell</button>
+    </div>
+    <div *ngIf="isBuy">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">USD</span>
+            </div>
+            <input min="0" type="number" class="form-control" placeholder="USD to spent" 
+            (keyup)="onKeyBuy($event)" >
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">{{currency.symbol}}</span>
+            </div>
+            <input type="number" class="form-control" value="{{convertedValue}}" disabled />
+        </div>
+        <!-- <input type="number" placeholder="USD to spent" (keyup)="onKeyBuy($event)" />
+        <input type="number" value="{{convertedValue}}" disabled /> -->
+        <button class="btn btn-primary" (click)="buy()">Buy</button>
+    </div>
+    <div *ngIf="!isBuy">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">{{currency.symbol}}</span>
+            </div>
+            <input min="0" type="number" class="form-control" placeholder="{{currency.name}} to sell"
+                (keyup)="onKeySell($event)">
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">USD</span>
+            </div>
+            <input type="number" class="form-control" value="{{convertedValue}}" disabled />
+        </div>
+        <!-- <input type="number" placeholder="{{currency.name}} to sell" (keyup)="onKeySell($event)" />
+        <input type="number" value="{{convertedValue}}"  disabled /> -->
+        <button class="btn btn-primary" (click)="sell()">Sell</button>
+    </div>
+</div>

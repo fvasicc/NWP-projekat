@@ -1,0 +1,30 @@
+<div class="pt-2 mx-1">
+    <div class="card rounded-lg bg-dark text-white">
+        <div class="card-header">
+            <h2>{{crypto.cryptoModel.symbol}}<h4>{{crypto.cryptoModel.name}}</h4></h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-5">
+                    Current price 
+                </div>
+                {{crypto.cryptoModel.priceUsd | number:'1.2-10'}} USD
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    Quantity 
+                </div>
+                {{crypto.crypto | number:'1.2-10'}}
+            </div>
+            <div class="row">
+                <div class="col-sm-5">
+                    Value 
+                </div>
+                {{value | number:'1.2-10'}} USD
+            </div>
+        </div>
+        <div class="card-footer">
+            <app-currency-transaction [currency]="crypto.cryptoModel"></app-currency-transaction>
+        </div>
+    </div>
+</div>

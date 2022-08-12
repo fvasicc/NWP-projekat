@@ -1,11 +1,8 @@
 <div class="row">
   <div class="col-sm-6" align="center">
     <div style="display: block;">
-      <canvas baseChart width="700" height="300" style="max-width: 100%;"
-        [type]="'line'"
-        [data]="lineChartData"
-        [options]="lineChartOptions"
-        [legend]="lineChartLegend">
+      <canvas baseChart width="700" height="300" style="max-width: 100%;" [type]="'line'" [data]="lineChartData"
+        [options]="lineChartOptions" [legend]="lineChartLegend">
       </canvas>
     </div>
     <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -20,10 +17,10 @@
     <div class="row">
       <div class="col-sm-6">
         <h2>Today open: ${{todayOpen | number:'1.2-4'}}</h2>
-      </div>  
+      </div>
       <div class="col-sm-6">
         <h2>Daily Change: {{change | number:'1.2-2'}}%</h2>
-      </div>  
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-6">
@@ -39,7 +36,8 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="addon-wrapping">{{currency.symbol}}</span>
         </div>
-        <input type="number" #tokens class="form-control" placeholder="{{currency.name}} coins..." aria-label="Crypto" aria-describedby="addon-wrapping">
+        <input type="number" #tokens class="form-control" placeholder="{{currency.name}} coins..." aria-label="Crypto"
+          aria-describedby="addon-wrapping">
       </div>
     </div>
     <div class="row">
@@ -51,11 +49,17 @@
             </select>
           </span>
         </div>
-        <input type="number" class="form-control" aria-label="Crypto" aria-describedby="addon-wrapping" value="{{value}}" disabled>
+        <input type="number" class="form-control" aria-label="Crypto" aria-describedby="addon-wrapping"
+          value="{{value}}" disabled>
       </div>
     </div>
     <button type="button" class="btn btn-secondary" (click)="setValue(tokens.value)">Convert</button>
   </div>
 </div>
 <br>
-
+<div class="collapse row" [ngClass]="authorized ? 'show' : ''">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <app-currency-transaction [currency]="currency"></app-currency-transaction>
+  </div>
+</div>

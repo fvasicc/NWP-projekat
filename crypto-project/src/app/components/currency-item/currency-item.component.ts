@@ -19,6 +19,8 @@ export class CurrencyItemComponent implements OnInit {
 
   collapsed = false;
 
+  
+
   changeCollapse() {
     this.collapsed = ! this.collapsed;
   }

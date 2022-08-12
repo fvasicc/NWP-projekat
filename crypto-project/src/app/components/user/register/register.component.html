@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="py-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <span class="anchor" id="formLogin"></span>
+
+                <!-- form card login -->
+                <div class="card rounded-0 bg-dark text-white">
+                    <div class="card-header">
+                        <h3 class="mb-0">Register</h3>
+                    </div>
+                    <div class="card-body">
+                        <form #registrationForm="ngForm" class="needs-validation"
+                            (ngSubmit)="register(registrationForm)">
+                            <div class="form row">
+                                <div class="col-md-6 mb-3">
+                                    <label>First name</label>
+                                    <input #fname="ngModel" type="text" class="form-control" name="firstName"
+                                        [(ngModel)]="registerUserData.firstName" required />
+                                    <div class="error" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                                        First name is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Last name</label>
+                                    <input #lname="ngModel" type="text" class="form-control" name="lastName"
+                                        [(ngModel)]="registerUserData.lastName" required />
+                                    <div class="error" *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                                        First name is required!!!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form row">
+                                <div class="col-md-6 mb-3">
+                                    <label>Country</label>
+                                    <input #country="ngModel" type="text" class="form-control" name="country"
+                                        [(ngModel)]="registerUserData.country" required />
+                                    <div class="error" *ngIf="country.invalid && (country.dirty || country.touched)">
+                                        Country is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label>City</label>
+                                    <input #city="ngModel" type="text" class="form-control" name="city"
+                                        [(ngModel)]="registerUserData.city" required />
+                                    <div class="error" *ngIf="city.invalid && (city.dirty || city.touched)">
+                                        City is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label>Zip</label>
+                                    <input #zip="ngModel" type="text" class="form-control" name="zip"
+                                        [(ngModel)]="registerUserData.zip" required />
+                                    <div class="error" *ngIf="zip.invalid && (zip.dirty || zip.touched)">
+                                        First name is required!!!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form row">
+                                <div class="col-md-6 mb-3">
+                                    <label>Email</label>
+                                    <input #email="ngModel" type="email" class="form-control" name="email"
+                                        [(ngModel)]="registerUserData.email" required />
+                                    <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+                                        Email is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Confirm email</label>
+                                    <input #emailConf="ngModel" type="email" class="form-control" name="emailConfirm"
+                                        [(ngModel)]="emailConfirm" required />
+                                    <div class="error"
+                                        *ngIf="emailConf.invalid && (emailConf.dirty || emailConf.touched)">
+                                        Email confimration is required!!!
+                                    </div>
+                                    <p class="error">{{messageMail}}</p>
+                                </div>
+                            </div>
+                            <div class="form row">
+                                <div class="col-md-6 mb-3">
+                                    <label>Password</label>
+                                    <input #pass="ngModel" type="password" class="form-control" name="password"
+                                        [(ngModel)]="registerUserData.password" (keyup)="onKey($event)" required />
+                                    <app-password-checker></app-password-checker>
+                                    <div class="error" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+
+                                        Password is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Confirm password</label>
+                                    <input #passConf="ngModel" type="password" class="form-control"
+                                        name="passwordConfirm" [(ngModel)]="passwordConfirm" required />
+                                    <div class="error" *ngIf="passConf.invalid && (passConf.dirty || passConf.touched)">
+                                        Password confirmation is required!!!
+                                    </div>
+                                    <p class="error">{{messagePass}}</p>
+                                </div>
+                            </div>
+                            <div class="form row">
+                                <div class="col-md-6 mb-3">
+                                    <label>Username</label>
+                                    <input #username="ngModel" type="text" class="form-control" name="username"
+                                        [(ngModel)]="registerUserData.username" required />
+                                    <div class="error" *ngIf="username.invalid && (username.dirty || username.touched)">
+                                        Username confirmation is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label>Age</label>
+                                    <input #age="ngModel" type="number" class="form-control" name="age"
+                                        [(ngModel)]="registerUserData.age" required />
+                                    <div class="error" *ngIf="age.invalid && (age.dirty || age.touched)">
+                                        Age is required!!!
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label>Gender</label>
+                                    <select class="form-control" name="sex" [(ngModel)]="registerUserData.sex">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Sign up</button>
+                        </form>
+                    </div>
+                    <!--/card-block-->
+                </div>
+                <!-- /form card login -->
+            </div>
+        </div>
+    </div>
+</div>

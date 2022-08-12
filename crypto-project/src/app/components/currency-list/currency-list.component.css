@@ -1,6 +1,4 @@
-.black-bg {
-    background-color: black;
-}
+@import '../../app.component.css';
 
 .lightonhover div {
     background-color: red;
