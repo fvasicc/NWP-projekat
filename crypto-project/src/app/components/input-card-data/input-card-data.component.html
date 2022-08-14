@@ -1,0 +1,49 @@
+<form class="form">
+    <div class="form row">
+        <div class="mb-2">
+            <label>Card Number</label>
+            <input #cardNumber="ngModel" minlength="16" maxlength="16" type="text" class="form-control"
+                name="cardNumber" placeholder="0000 0000 0000 0000" [(ngModel)]="cNumber" pattern="[0-9.]+" required>
+        </div>
+        <div class="error" *ngIf="cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)">
+            <div *ngIf="cardNumber.errors?.['minlength'] || cardNumber.errors?.['maxlength']">
+                Card number must be 16 characters long!!!
+            </div>
+            <div *ngIf="cardNumber.errors?.['required']">
+                Card number is required!!!
+            </div>
+            <div *ngIf="cardNumber.errors?.['pattern']">
+                Card number must contain only numbers!!!
+            </div>
+        </div>
+    </div>
+    <div class="form row">
+        <div class="col-md-6 mb-2">
+            <label>Expiration date</label>
+            <input #expirationDate="ngModel" type="text" onfocus="(this.type='month')" placeholder="MM/YY"
+                class="form-control" name="expiryDate" [(ngModel)]="expDate" required>
+            <div class="error" *ngIf="expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)">
+                Expiration date is required!!!
+            </div>
+        </div>
+        <div class="col-md-6 mb-2">
+            <label>CVC/CVV</label>
+            <input #code="ngModel" type="text" class="form-control" name="cvcCVV" placeholder="***" minlength="3"
+                maxlength="4" pattern="[0-9.]+" [(ngModel)]="cvv" required>
+            <div class="error" *ngIf="code.invalid && (code.dirty || code.touched)">
+                <div *ngIf="code.errors?.['minlength'] ">
+                    CVC/CVV must be at least 3 characters long!!!
+                </div>
+                <div *ngIf="code.errors?.['maxlength']">
+                    CVC/CVV must be must 4 characters long!!!
+                </div>
+                <div *ngIf="code.errors?.['required']">
+                    CVC/CVV is required!!!
+                </div>
+                <div *ngIf="code.errors?.['pattern']">
+                    CVC/CVV must contain only numbers!!!
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -26,6 +26,8 @@ import { CarouselModule, ModalModule } from '@coreui/angular';
 import { IconModule } from '@coreui/icons-angular';
 import { PasswordCheckerComponent } from './components/password-checker/password-checker.component';
 import { DepositPaymentComponent } from './components/deposit-payment/deposit-payment.component';
+import { InputCardDataComponent } from './components/input-card-data/input-card-data.component';
+import { WithdrawalComponent } from './components/withdrawal/withdrawal.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { DepositPaymentComponent } from './components/deposit-payment/deposit-pa
     CryptoCardComponent,
     PasswordCheckerComponent,
     DepositPaymentComponent,
+    InputCardDataComponent,
+    WithdrawalComponent,
   ],
   imports: [
     BrowserModule,

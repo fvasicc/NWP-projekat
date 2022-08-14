@@ -178,4 +178,35 @@ router.get('/wallet/:username', (req, res) => {
   }
 });
 
+router.patch('/wallet/deposit', (req, res) => {
+  let info = req.body;
+
+  const foundWallet = wallets.find((wallet) => wallet.user == info.username);
+
+  //implementacija samo za potrebe projekta, da se demonstriraju osnovne funkcionalnosti na frontendu
+  if (foundWallet) {
+    foundWallet.usd += info.usd
+    return res.status(200).json({ msg: 'Transaction successfull'})
+  }
+
+  return res.status(400).json({ msg: 'Transaction failed' });
+});
+
+router.patch('/wallet/withdraw', (req, res) => {
+  let info = req.body;
+
+  const foundWallet = wallets.find((wallet) => wallet.user == info.username);
+
+  if (foundWallet) {
+    if (foundWallet.usd < info.usd) 
+      return res.status(400).json({ msg: 'Transaction failed: You don\'t have enough money in wallet'})
+    
+    //implementacija samo za potrebe projekta, da se demonstriraju osnovne funkcionalnosti na frontendu
+    foundWallet.usd -= info.usd
+    return res.status(200).json({ msg: 'Transaction successfull'})
+  }
+
+  return res.status(400).json({ msg: 'Transaction failed' });
+});
+
 module.exports = router;

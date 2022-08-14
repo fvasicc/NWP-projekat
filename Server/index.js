@@ -9,6 +9,4 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 app.use('/api/user', require('./user'));
 
-app.use('/api/movie', require('./movie'));
-
 app.listen(3000, () => console.log('App Server listening on port 3000!'));

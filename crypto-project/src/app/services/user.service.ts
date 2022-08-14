@@ -74,4 +74,18 @@ export class UserService {
   changePassword(data: PasswordChangeData) {
     return this.httpClient.patch(this.BACKEND_BASE + 'changePassword/' + data.username, data)
   }
+
+  deposit(data: any) {
+    return this.httpClient.patch(this.BACKEND_BASE + 'wallet/deposit', {
+      username: data.username,
+      usd: data.usd
+    })
+  }
+
+  withdraw(data: any) {
+    return this.httpClient.patch(this.BACKEND_BASE + 'wallet/withdraw', {
+      username: data.username,
+      usd: data.usd
+    })
+  }
 }

@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CryptoModel } from 'src/app/model/crypto';
 import { CryptoInWalletInfo, Wallet } from 'src/app/model/wallet';
 import { CryptoServiceService } from 'src/app/services/crypto-service.service';
 import { UserService } from 'src/app/services/user.service';
+import { DepositPaymentComponent } from '../deposit-payment/deposit-payment.component';
+import { InputCardDataComponent } from '../input-card-data/input-card-data.component';
+import { WithdrawalComponent } from '../withdrawal/withdrawal.component';
 
 @Component({
   selector: 'app-wallet',
@@ -16,6 +19,12 @@ export class WalletComponent implements OnInit {
   public worth: number = 0
   public cryptos: Array<CryptoModel> = []
   public cryptosInfo: Array<CryptoInWalletInfo> = []
+
+  @ViewChild(DepositPaymentComponent)
+  deposit!: DepositPaymentComponent
+
+  @ViewChild(WithdrawalComponent)
+  withdraw!: WithdrawalComponent
 
   constructor(private userService: UserService, private currencyService: CryptoServiceService) {
     this.username = localStorage.getItem('user')?.toString()
@@ -43,17 +52,12 @@ export class WalletComponent implements OnInit {
     })
   }
 
-  onWithdrawalClick() {
-
-  }
-
-  display = "none"
-
   openDepositModal() {
-    this.display = "block"
+    this.deposit.openDepositModal()
   }
-  
-  onCloseHandled() {
-    this.display = "none"
+
+  openWithdrawModal() {
+    this.withdraw.openWithdrawModal()
   }
+ 
 }

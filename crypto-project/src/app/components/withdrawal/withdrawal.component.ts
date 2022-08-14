@@ -3,11 +3,11 @@ import { UserService } from 'src/app/services/user.service';
 import { InputCardDataComponent } from '../input-card-data/input-card-data.component';
 
 @Component({
-  selector: 'app-deposit-payment',
-  templateUrl: './deposit-payment.component.html',
-  styleUrls: ['./deposit-payment.component.css']
+  selector: 'app-withdrawal',
+  templateUrl: './withdrawal.component.html',
+  styleUrls: ['./withdrawal.component.css']
 })
-export class DepositPaymentComponent implements OnInit {
+export class WithdrawalComponent implements OnInit {
 
   @ViewChild(InputCardDataComponent)
   inputCardForm!: InputCardDataComponent
@@ -20,7 +20,7 @@ export class DepositPaymentComponent implements OnInit {
 
   display = "none"
 
-  openDepositModal() {
+  openWithdrawModal() {
     this.display = "block"
   }
   
@@ -28,8 +28,8 @@ export class DepositPaymentComponent implements OnInit {
     this.display = "none"
   }
 
-  pay() {
-    this.userService.deposit({
+  withdraw() {
+    this.userService.withdraw({
       username: localStorage.getItem('user')?.toString(),
       usd: this.usd,
       card: this.inputCardForm.getCardData()
@@ -42,6 +42,6 @@ export class DepositPaymentComponent implements OnInit {
     }
     )
   }
+  
 
 }
- 

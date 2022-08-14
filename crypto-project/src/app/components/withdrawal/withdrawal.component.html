@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content bg-dark text-white">
             <div class="modal-header">
-                <h2 class="modal-title mb-0">Deposit</h2>
+                <h2 class="modal-title mb-0">withdrawal</h2>
                 <button type="button" class="btn btn-default text-white mb-0" aria-label="Close"
                     data-dismiss="modal" (click)="onCloseHandled()"><span
                         aria-hidden="true">&times;</span></button>
@@ -11,17 +11,17 @@
                 <app-input-card-data></app-input-card-data>
             </div>
             <div class="modal-footer">
-                <input #amount="ngModel" type="number" min="10" class="form-control" placeholder="Deposit in USD" [(ngModel)]="usd" required />
+                <input #amount="ngModel" type="number" min="0" class="form-control" placeholder="Amount in USD" [(ngModel)]="usd" required/>
                 <div class="error" *ngIf="amount.invalid && (amount.dirty || amount.touched)">
                     <div *ngIf="amount.errors?.['required']">
                         Amount is required!!!
                     </div>
                     <div *ngIf="amount.errors?.['min']">
-                        Minimal amount is 10USD
+                        Amount can't be negative!!!
                     </div>
                 </div>
                 <button type="button" class="btn btn-default text-white"
-                    (click)="pay()">Deposit</button>
+                    (click)="withdraw()">Withdraw</button>
                 <button type="button" class="btn btn-default text-white"
                     (click)="onCloseHandled()">Close</button>
             </div>
