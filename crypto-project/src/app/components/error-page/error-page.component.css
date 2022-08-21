@@ -1,0 +1,32 @@
+.error-page {
+    background-color: #d8d8d8;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-page h1 {
+    font-weight: 500;
+    font-weight: bold;
+    color: transparent;
+    background-image: url('https://img.freepik.com/premium-vector/space-background-with-abstract-shape-stars_189033-30.jpg?w=2000');
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    font-size: 200px; 
+    height: 220px;
+    padding: 65px;
+}
+
+.error-page h4 {
+    font-weight: 400;
+    font-weight: bold;
+}

@@ -28,6 +28,7 @@ import { PasswordCheckerComponent } from './components/password-checker/password
 import { DepositPaymentComponent } from './components/deposit-payment/deposit-payment.component';
 import { InputCardDataComponent } from './components/input-card-data/input-card-data.component';
 import { WithdrawalComponent } from './components/withdrawal/withdrawal.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { WithdrawalComponent } from './components/withdrawal/withdrawal.componen
     DepositPaymentComponent,
     InputCardDataComponent,
     WithdrawalComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
