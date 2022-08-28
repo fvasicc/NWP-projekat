@@ -29,6 +29,7 @@ import { DepositPaymentComponent } from './components/deposit-payment/deposit-pa
 import { InputCardDataComponent } from './components/input-card-data/input-card-data.component';
 import { WithdrawalComponent } from './components/withdrawal/withdrawal.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     FormsModule,
     HttpClientModule,
     NgChartsModule,
-    ModalModule
+    ModalModule,
+    MatSliderModule
   ],
   providers: [CryptoServiceService, AuthGuard, LoggedGuard, {provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}],
   bootstrap: [AppComponent]

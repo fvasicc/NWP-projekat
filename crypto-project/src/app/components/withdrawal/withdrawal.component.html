@@ -20,6 +20,8 @@
                         Amount can't be negative!!!
                     </div>
                 </div>
+                <mat-slider color="primary" style="width: 100%;" aria-label="unit(s)" [(ngModel)]="usd" [max]="userWallet.usd" [min]="0"></mat-slider>
+
                 <button type="button" class="btn btn-default text-white"
                     (click)="withdraw()">Withdraw</button>
                 <button type="button" class="btn btn-default text-white"

@@ -11,8 +11,6 @@ import { Wallet } from '../model/wallet';
 })
 export class UserService {
 
-  public auth = false;
-
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   BACKEND_BASE = "http://localhost:3000/api/user/"

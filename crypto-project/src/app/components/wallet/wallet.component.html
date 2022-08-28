@@ -29,7 +29,7 @@
                             <button (click)="openWithdrawModal()" class="btn btn-primary">Withdrawal</button>
                         </div>
                         <app-deposit-payment></app-deposit-payment>
-                        <app-withdrawal></app-withdrawal>
+                        <app-withdrawal [userWallet]="wallet"></app-withdrawal>
                     </div>
                 </div>
             </div>

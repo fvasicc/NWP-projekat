@@ -19,7 +19,6 @@ export class RatesService {
   public getRates() : Observable<RatesModel[]> {
     return this.getRatesAssets().pipe(map(ass => ass.data))
   }
-
   
 }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Wallet } from 'src/app/model/wallet';
 import { UserService } from 'src/app/services/user.service';
 import { InputCardDataComponent } from '../input-card-data/input-card-data.component';
 
@@ -12,6 +13,9 @@ export class WithdrawalComponent implements OnInit {
   @ViewChild(InputCardDataComponent)
   inputCardForm!: InputCardDataComponent
   public usd!: number
+
+  @Input()
+  userWallet !: Wallet
 
   constructor(private userService: UserService) { }
 
