@@ -1,1 +1,7 @@
 @import '../../app.component.css';
+
+.btn-full-width {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-align: left;
+}

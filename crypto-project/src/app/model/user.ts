@@ -8,7 +8,7 @@ export interface RegisterUserDto {
     country: string,
     zip: number,
     age: number,
-    sex: string,
+    gender: string,
     imageUrl: string
 }
 
@@ -21,6 +21,6 @@ export interface LoggedUserDto {
     country: string,
     zip: number,
     age: number,
-    sex: string,
+    gender: string,
     imageUrl: string
 }

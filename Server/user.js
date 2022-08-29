@@ -14,7 +14,7 @@ var usersDetails = [
     country: 'Srbija',
     zip: 15220,
     age: 22,
-    sex: 'Male',
+    gender: 'Male',
     imageUrl: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
   }
 ];
