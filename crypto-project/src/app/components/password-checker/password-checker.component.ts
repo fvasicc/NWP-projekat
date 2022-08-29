@@ -18,12 +18,15 @@ export class PasswordCheckerComponent implements OnInit {
   number = false
   symbol = false
 
+  wrongSymbol = false;
+
   onKey(inputValue: string) {
     this.len = false
     this.upper = false
     this.lower = false
     this.number = false
     this.symbol = false
+    this.wrongSymbol = false
     if (inputValue.length >= 8)
       this.len = true
     for (let i = 0; i < inputValue.length; i++) {
@@ -33,16 +36,18 @@ export class PasswordCheckerComponent implements OnInit {
       else if (char === '!' || char === '$' || char == '.')
         this.symbol = true
       else {
-        if (char == char.toUpperCase())
+        if (char >= 'A' && char <= 'Z')
           this.upper = true
-        if (char == char.toLowerCase())
+        else if (char >= 'a' && char <= 'z')
           this.lower = true
+        else 
+          this.wrongSymbol = true
       }
     }
   }
 
   isPasswordOk() {
-    return this.upper && this.lower && this.number && this.symbol && this.len
+    return this.upper && this.lower && this.number && this.symbol && this.len && !this.wrongSymbol
   }
 
 }
