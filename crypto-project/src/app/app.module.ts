@@ -31,6 +31,7 @@ import { WithdrawalComponent } from './components/withdrawal/withdrawal.componen
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { HeaderComponent } from './components/header/header.component';
     WithdrawalComponent,
     ErrorPageComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
