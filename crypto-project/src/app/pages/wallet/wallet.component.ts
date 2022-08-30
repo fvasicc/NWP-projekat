@@ -3,9 +3,9 @@ import { CryptoModel } from 'src/app/model/crypto';
 import { CryptoInWalletInfo, Wallet } from 'src/app/model/wallet';
 import { CryptoServiceService } from 'src/app/services/crypto-service.service';
 import { UserService } from 'src/app/services/user.service';
-import { DepositPaymentComponent } from '../deposit-payment/deposit-payment.component';
-import { InputCardDataComponent } from '../input-card-data/input-card-data.component';
-import { WithdrawalComponent } from '../withdrawal/withdrawal.component';
+import { DepositPaymentComponent } from '../../components/deposit-payment/deposit-payment.component';
+import { InputCardDataComponent } from '../../components/input-card-data/input-card-data.component';
+import { WithdrawalComponent } from '../../components/withdrawal/withdrawal.component';
 
 @Component({
   selector: 'app-wallet',
@@ -17,7 +17,7 @@ export class WalletComponent implements OnInit {
   public username
   public wallet !: Wallet
   public worth: number = 0
-  public cryptos: Array<CryptoModel> = []
+  // public cryptos: Array<CryptoModel> = []
   public cryptosInfo: Array<CryptoInWalletInfo> = []
 
   @ViewChild(DepositPaymentComponent)
@@ -43,7 +43,7 @@ export class WalletComponent implements OnInit {
       this.currencyService.getCurrencyInfo(curr.cryptoID).subscribe(
         resp => {
           this.worth += curr.crypto * Number(resp.priceUsd)
-          this.cryptos.push(resp)
+          // this.cryptos.push(resp)
           this.cryptosInfo.push({
             cryptoModel: resp,
             crypto: curr.crypto

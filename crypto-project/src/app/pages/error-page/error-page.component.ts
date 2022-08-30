@@ -10,10 +10,12 @@ export class ErrorPageComponent implements OnInit {
 
   msg: string
   error: string
+  buttonText: string
 
   constructor(private router: Router, private actRoute: ActivatedRoute) { 
     this.msg = actRoute.snapshot.data['msg']
     this.error = actRoute.snapshot.data['error']
+    this.buttonText = actRoute.snapshot.data['buttonText']
   }
 
   ngOnInit(): void {

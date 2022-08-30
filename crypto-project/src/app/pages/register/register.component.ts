@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegisterUserDto } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
-import { PasswordCheckerComponent } from '../../password-checker/password-checker.component';
+import { PasswordCheckerComponent } from '../../components/password-checker/password-checker.component';
 
 @Component({
   selector: 'app-register',
@@ -67,8 +67,10 @@ export class RegisterComponent implements OnInit {
             alert('Registration failed: ' + err.error.msg)
           })
       }
+    } else {
+      alert('Registration failed: Please check your input')
     }
-  }
+  } 
 
   onKey(event: any) {
     this.passwordCheckerComp.onKey(event.target.value)
