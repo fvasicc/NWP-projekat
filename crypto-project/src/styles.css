@@ -12,3 +12,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .modal-bg {
     background-color: rgba(0, 0, 0, 0.66);
 }
+
+
+.danger {
+    border: 2px solid red;
+}
+
+.ok {
+    border: 2px solid green;
+}
+
+.danger:focus {
+    border-color: red;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px red;
+}
+
+.ok:focus {
+    border-color: green;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px green;
+}

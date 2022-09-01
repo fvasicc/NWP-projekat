@@ -17,7 +17,7 @@ export class WalletComponent implements OnInit {
   public username
   public wallet !: Wallet
   public worth: number = 0
-  // public cryptos: Array<CryptoModel> = []
+
   public cryptosInfo: Array<CryptoInWalletInfo> = []
 
   @ViewChild(DepositPaymentComponent)
@@ -43,7 +43,6 @@ export class WalletComponent implements OnInit {
       this.currencyService.getCurrencyInfo(curr.cryptoID).subscribe(
         resp => {
           this.worth += curr.crypto * Number(resp.priceUsd)
-          // this.cryptos.push(resp)
           this.cryptosInfo.push({
             cryptoModel: resp,
             crypto: curr.crypto

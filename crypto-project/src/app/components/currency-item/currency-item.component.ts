@@ -13,13 +13,7 @@ export class CurrencyItemComponent implements OnInit {
   @Input()
   currency !: CryptoModel
 
-  changePercent24Hr !: number
-  priceUsd !: number
-  vwap24Hr !: number
-
   collapsed = false;
-
-  
 
   changeCollapse() {
     this.collapsed = ! this.collapsed;
@@ -28,9 +22,9 @@ export class CurrencyItemComponent implements OnInit {
   constructor(private cryptoService : CryptoServiceService) {}
 
   ngOnInit(): void {
-    this.changePercent24Hr = Number(this.currency.changePercent24Hr)
-    this.priceUsd = Number(this.currency.priceUsd)
-    this.vwap24Hr = Number(this.currency.vwap24Hr)
   }
-
+  
+  isChangePercent24HrNegative() {
+    return Number(this.currency.changePercent24Hr) < 0.0
+  }
 }

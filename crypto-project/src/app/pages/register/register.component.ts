@@ -35,6 +35,8 @@ export class RegisterComponent implements OnInit {
   public messageMail = ''
   public messagePassOk = ''
 
+  public passwordOk = true
+
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void { }
@@ -74,6 +76,7 @@ export class RegisterComponent implements OnInit {
 
   onKey(event: any) {
     this.passwordCheckerComp.onKey(event.target.value)
+    this.passwordOk = this.passwordCheckerComp.isPasswordOk()
   }
 
 }
